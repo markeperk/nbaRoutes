@@ -8,13 +8,8 @@ app.config(function($routeProvider, $httpProvider){
   		templateUrl: 'js/home/homeTmpl.html',
   		controller: 'homeCtrl',
   		resolve: {
-  			allData: function(teamService, $route, $scope) {
-  				var newData = {};
-  				var newTeam = utahjazz;
-  				newData.jazz = teamService.getTeamData($scope.newTeam);
-  				// newData.lakers = teamService.getTeamData($scope.newGame.losangeleslakers);
-  				// newData.lakers = teamService.getTeamData($scope.newGame.miamiheat);
-  			console.log(newData);
+  			allData: function($route, homeService) {
+  			 return homeService.getAllData();
   			}
   		}
   	})
